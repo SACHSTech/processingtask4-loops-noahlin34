@@ -44,6 +44,12 @@ public class Sketch extends PApplet {
       }
     }
 
+    //uses variables to draw the center of the flower
+    int intPetalPointx = width - width / 4;
+    int intPetalPointy = height - height / 4;
+    ellipse(intPetalPointx, intPetalPointy, 30, 30);
+
+
 
   }
   
