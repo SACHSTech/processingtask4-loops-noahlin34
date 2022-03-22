@@ -25,12 +25,19 @@ public class Sketch extends PApplet {
   public void draw() {
 	  
 
-
+  //for loops to draw a grid of lines for quadrant 1 
     for (int i = 1; i <=9; i++) {
-      int linex = i * 30;
-      line(linex, 0, linex, height);
+      int linex = i * 20;
+      line(linex, 0, linex, height/2);
+
+      for (int b = 1; b <=9; b++) {
+        int liney = b * 20;
+        line(0, liney, width/2, liney);
+  
+      }
     }
 
+    
 
 
   }
