@@ -1,3 +1,5 @@
+import java.security.spec.ECPublicKeySpec;
+
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
@@ -8,7 +10,7 @@ public class Sketch extends PApplet {
    */
   public void settings() {
 	// put your size call here
-    size(400, 400);
+    size(500, 500);
   }
 
   /** 
@@ -23,31 +25,38 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
+    
 
-  //for loops to draw a 10x10 grid of lines for quadrant 1 
+  //for loops to draw a 10x10 grid of lines for quadrant 1
+  stroke(0, 0, 0);
+ 
     for (int i = 1; i <=10; i++) {
-      int linex = i * 20;
+      int linex = i * width/21;
       line(linex, 0, linex, height/2);
 
       for (int b = 1; b <=10; b++) {
-        int liney = b * 20;
+        int liney = b * width/21;
         line(0, liney, width/2, liney);
   
       }
     }
 
     //loops to draw the 5x5 grid of circles for quadrant 2 
-    for (int circleY = 35; circleY <= 175; circleY += 35) {
-      for (int circleX = 35; circleX <= 175; circleX += 35) {
+    stroke(255, 0, 0);
+
+    for (int circleY = width/12; circleY <= (width/12) * 5; circleY += width/12) {
+      for (int circleX = width/12; circleX <= (width/12) * 5; circleX += width/12) {
         ellipse(width/2 + circleX, circleY, width/15, width/15);
       }
     }
 
-    //uses variables to draw the center of the flower
-    int intPetalPointx = width - width / 4;
-    int intPetalPointy = height - height / 4;
-    ellipse(intPetalPointx, intPetalPointy, 30, 30);
+    //draws the gradient in quadrant 4
+
+    for (int i = 0; i<=height/2; i++) {
+        stroke(i, i, i);
+        int lineh = i ;
+        line(lineh, height/2, lineh, height);
+    }
 
 
 
