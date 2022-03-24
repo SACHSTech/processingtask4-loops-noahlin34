@@ -1,5 +1,5 @@
 import java.security.spec.ECPublicKeySpec;
-
+import java.lang.Math;
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
@@ -29,11 +29,12 @@ public class Sketch extends PApplet {
 
   //for loops to draw a 10x10 grid of lines for quadrant 1
   stroke(0, 0, 0);
- 
+    //for loop to draw the vertiacal lines
     for (int i = 1; i <=10; i++) {
       int linex = i * width/21;
       line(linex, 0, linex, height/2);
 
+      //nested for loop to draw the horizontal lines
       for (int b = 1; b <=10; b++) {
         int liney = b * width/21;
         line(0, liney, width/2, liney);
@@ -44,6 +45,7 @@ public class Sketch extends PApplet {
     //loops to draw the 5x5 grid of circles for quadrant 2 
     stroke(255, 0, 0);
 
+    
     for (int circleY = width/12; circleY <= (width/12) * 5; circleY += width/12) {
       for (int circleX = width/12; circleX <= (width/12) * 5; circleX += width/12) {
         ellipse(width/2 + circleX, circleY, width/15, width/15);
@@ -59,8 +61,27 @@ public class Sketch extends PApplet {
     }
 
 
+    //draws the flower in quadrant 3 
+
+    stroke(0, 0, 0);
+    int intCircleX = width - width/4;
+    int intCircleY = height - height/4;
+    
+    pushMatrix();
+    translate(intCircleX, intCircleY);
+    for (int i = 0; i <=360; i += 45){
+      rotate(radians(i));      
+      ellipse(0,0 - width/15, height/30, height/10);
+      
+    }
+    popMatrix();
+    
+    ellipse(intCircleX, intCircleY, 30, 30);
+
+    
+
 
   }
   
   // define other methods down here.
-}
+} 
